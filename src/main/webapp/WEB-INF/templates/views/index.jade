@@ -1,0 +1,32 @@
+-@ val hits: Array[org.elasticsearch.search.SearchHit]
+- attributes("title") = "SSlack"
+- import java.text.DateFormat
+- import java.util.Locale
+- import java.util.Date
+- val df = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.SHORT, Locale.JAPANESE)
+
+div.well
+  form.form-inline(action="/" method="get" role="form")
+    div.form-group
+      label.sr-only(for="channel") Channel name
+      input.form-control#channel(type="text" name="channel" placeholder="channel" value={params.getOrElse("channel", "")})
+    div.form-group
+      label.sr-only(for="user") User name
+      input.form-control#user(type="text" name="user" placeholder="user" value={params.getOrElse("user", "")})
+    div.form-group
+      label.sr-only(for="query") Query
+      input.form-control#query(type="text" name="q" placeholder="query" value={params.getOrElse("q", "")})
+    input.btn.btn-default(type="submit" value="Search")
+
+table.table
+  tr
+    th user
+    th channel
+    th text
+    th time
+  - for (hit <- hits)
+    tr
+      td= hit.getSource().get("user_name")
+      td= "#" + hit.getSource().get("channel_name")
+      td= hit.getSource().get("text")
+      td= df.format(new Date((hit.getSource().get("time").asInstanceOf[Double] * 1000L).toLong))
