@@ -12,4 +12,26 @@
   <listener>
     <listener-class>org.scalatra.servlet.ScalatraListener</listener-class>
   </listener>
+
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>A Protected Page</web-resource-name>
+      <url-pattern>/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>user</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Webhook endpoint</web-resource-name>
+      <url-pattern>/slack-webhook</url-pattern>
+    </web-resource-collection>
+  </security-constraint>
+
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>SSlack Realm</realm-name>
+  </login-config>
 </web-app>
