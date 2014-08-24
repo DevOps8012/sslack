@@ -29,4 +29,4 @@ table.table
       td= hit.getSource().get("user_name")
       td= "#" + hit.getSource().get("channel_name")
       td= hit.getSource().get("text")
-      td= df.format(new Date((hit.getSource().get("time").asInstanceOf[Double] * 1000L).toLong))
+      td= df.format(new Date((java.lang.Double.valueOf(hit.getSource().get("timestamp").asInstanceOf[String]) * 1000L).toLong))
