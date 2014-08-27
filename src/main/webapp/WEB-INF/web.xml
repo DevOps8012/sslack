@@ -31,9 +31,9 @@
       <web-resource-name>Webhook endpoint</web-resource-name>
       <url-pattern>/slack-webhook</url-pattern>
     </web-resource-collection>
-    <!--<user-data-constraint>
+    <user-data-constraint>
       <transport-guarantee>CONFIDENTIAL</transport-guarantee>
-    </user-data-constraint>-->
+    </user-data-constraint>
   </security-constraint>
 
   <login-config>
