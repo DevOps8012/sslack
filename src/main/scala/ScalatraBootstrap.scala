@@ -1,10 +1,10 @@
+import javax.servlet.ServletContext
+
 import jp.webpay.sslack._
 import org.elasticsearch.client.Client
 import org.elasticsearch.client.transport.TransportClient
 import org.elasticsearch.common.transport.InetSocketTransportAddress
-import org.elasticsearch.node.{Node, NodeBuilder}
 import org.scalatra._
-import javax.servlet.ServletContext
 
 class ScalatraBootstrap extends LifeCycle {
   var client: Client = null
