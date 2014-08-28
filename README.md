@@ -1,5 +1,7 @@
 # SSlack #
 
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 ## Demo ##
 
 - Access our [demo site](http://sslack.herokuapp.com/) on Heroku.

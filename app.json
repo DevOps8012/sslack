@@ -1,0 +1,15 @@
+{
+    "name": "SSlack",
+    "description": "Slack integration tool to search slack's log intelligently",
+    "keywords": [
+        "productivity",
+        "Slack",
+        "elasticsearch"
+    ],
+    "website": "https://github.com/webpay/sslack",
+    "repository": "https://github.com/webpay/sslack",
+    "success_url": "/",
+    "addons": [
+        "searchbox"
+    ]
+}
