@@ -1,23 +1,26 @@
 import javax.servlet.ServletContext
 
-import jp.webpay.sslack._
-import org.elasticsearch.client.Client
-import org.elasticsearch.client.transport.TransportClient
-import org.elasticsearch.common.transport.InetSocketTransportAddress
+import io.searchbox.client.config.HttpClientConfig
+import io.searchbox.client.{JestClient, JestClientFactory}
+import jp.webpay.sslack.SSlackServlet
 import org.scalatra._
 
 class ScalatraBootstrap extends LifeCycle {
-  var client: Client = null
+  var client: JestClient = null
 
   override def init(context: ServletContext) {
-    client = new TransportClient().addTransportAddress(new InetSocketTransportAddress("localhost", 9300))
+    val elasticsearchHttpUrl = sys.env.getOrElse("SEARCHBOX_SSL_URL", "http://localhost:9200")
+    val clientConfig = new HttpClientConfig.Builder(elasticsearchHttpUrl).multiThreaded(true).build()
+    val factory = new JestClientFactory()
+    factory.setHttpClientConfig(clientConfig)
+    client = factory.getObject
 
     context.mount(new SSlackServlet(client), "/*")
   }
 
   override def destroy(context: ServletContext): Unit = {
     if (client != null) {
-      client.close()
+      client.shutdownClient()
     }
   }
 }
