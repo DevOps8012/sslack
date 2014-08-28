@@ -73,7 +73,7 @@ class SSlackServlet(client: JestClient) extends SslackStack {
       ))))
 
     val mappingSetting = JSONObject(Map(
-      "document" -> JSONObject(Map("properties" -> JSONObject(Map(
+      typeName -> JSONObject(Map("properties" -> JSONObject(Map(
         "token" -> JSONObject(Map("type" -> "string", "store" -> false)),
         "timestamp" -> JSONObject(Map("type" -> "float", "index" -> "no")),
         "channel_name" -> JSONObject(Map("type" -> "string", "store" -> true, "index" -> "not_analyzed")),
