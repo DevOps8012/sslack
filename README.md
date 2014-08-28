@@ -19,7 +19,4 @@ $ ./sbt
 
 If `browse` doesn't launch your browser, manually open [http://localhost:8080/](http://localhost:8080/) in your browser.
 
-## Samples ##
-
-Run [sample import script](https://gist.github.com/tomykaira/75c2b15f241e048fe47a) with container started.
-The messages are taken from http://togetter.com/li/688351.
+To try searching without chatting in Slack many, use bundled `import.sh`.
