@@ -1,4 +1,4 @@
--@ val hits: Array[org.elasticsearch.search.SearchHit]
+-@ val hits: scala.collection.mutable.Buffer[jp.webpay.sslack.Message]
 - attributes("title") = "SSlack"
 - import java.text.DateFormat
 - import java.util.Locale
@@ -26,7 +26,7 @@ table.table
     th time
   - for (hit <- hits)
     tr
-      td= hit.getSource().get("user_name")
-      td= "#" + hit.getSource().get("channel_name")
-      td= hit.getSource().get("text")
-      td= df.format(new Date((java.lang.Double.valueOf(hit.getSource().get("timestamp").asInstanceOf[String]) * 1000L).toLong))
+      td= hit.user_name
+      td= "#" + hit.channel_name
+      td= hit.text
+      td= df.format(hit.timestampAsDate)
