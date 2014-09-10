@@ -22,6 +22,11 @@ object SslackBuild extends Build {
       <listener-class>org.scalatra.servlet.ScalatraListener</listener-class>
     </listener>
 
+    <context-param>
+      <param-name>org.scala.environment</param-name>
+      <param-value>production</param-value>
+    </context-param>
+
     <security-constraint>
       <web-resource-collection>
         <web-resource-name>A Protected Page</web-resource-name>
