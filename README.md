@@ -44,3 +44,7 @@ To try searching without chatting in Slack many, use bundled `import.sh`.
 - Put sslack URL to URLs: `http://YOUR_SSLACK_HOST/slack-webhook` .
 
 - Then "Save Integration". All done!
+
+## License ##
+
+MIT License.
